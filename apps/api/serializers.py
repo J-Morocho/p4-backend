@@ -4,7 +4,7 @@ from apps.api.models import Category, Plant
 
 class PlantSerializer(serializers.ModelSerializer):
     owner = serializers.ReadOnlyField(source='owner.username')
-
+    
     class Meta:
         model = Plant
         fields = ('id', 'category', 'owner', 'name', 'description',
