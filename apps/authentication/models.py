@@ -48,8 +48,8 @@ class User(AbstractBaseUser, PermissionsMixin):
     username = models.CharField(db_index=True, max_length=255, unique=True)
     email = models.EmailField(db_index=True, unique=True)
     # first_name and last_name is required
-    first_name = models.CharField(max_length=255)
-    last_name = models.CharField(max_length=255)
+    first_name = models.CharField(max_length=255, null=True, blank=True)
+    last_name = models.CharField(max_length=255, null=True, blank=True)
     is_active = models.BooleanField(default=True)
     # TODO: Figure out if this will need to be changed in production
     is_staff = models.BooleanField(default=True)
@@ -59,7 +59,7 @@ class User(AbstractBaseUser, PermissionsMixin):
     # The unique identifier
     USERNAME_FIELD = 'username'
     # What is prompted as required in the terminal
-    REQUIRED_FIELDS = ['first_name', 'last_name']
+    REQUIRED_FIELDS = ['email']
 
     objects = UserManager()
 
