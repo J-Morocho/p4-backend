@@ -21,7 +21,7 @@ A simple dashboard for making sure your plants are getting the care they need. T
 
 https://docs.google.com/spreadsheets/d/1MiYUM5Rr0hr_9kbYVNgYzxu88jngsMA9udl1Ox-z7Vw/edit#gid=0
 
-## Wireframes
+## Wireframes (Frontend)
 
 - [Mobile](https://res.cloudinary.com/jcloud3zf/image/upload/v1600001397/project-4/plantr-mobile_q8yfnw.png)
 - [Desktop](https://res.cloudinary.com/jcloud3zf/image/upload/v1600001379/project-4/p4-desktop_crum2i.png)
@@ -48,6 +48,10 @@ as a list of plants within those categories
 
 ## Functional Components
 
+- Routes for creating categories and plants
+- User authentication
+- Update plant is_watered column
+- Delete routes for plants and categories
 
 
 #### MVP
