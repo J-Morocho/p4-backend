@@ -99,3 +99,11 @@ class PlantViewSet(viewsets.ModelViewSet):
 
     def perform_create(self, serializer):
         serializer.save(owner=self.request.user)
+
+    def update(self, request, *args, **kwargs):
+        plant = Plant.objects.get(pk=self.kwargs['pk'])
+        if not request.user == plant.owner:
+            raise PermissionDenied(
+                'You have no permission to edit this plant object'
+            )
+        return super().update(request, *args, **kwargs)
