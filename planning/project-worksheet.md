@@ -1,3 +1,5 @@
+# **<p align="center">Plantr</p>**
+
 # Project Overview
 
 ## Project Schedule
@@ -13,7 +15,7 @@
 
 ## Project Description
 
-Use this section to describe your final project and perhaps any links to relevant sites that help convey the concept and\or functionality.
+A simple dashboard for making sure your plants are getting the care they need. The preliminary version of Plantr allows you to track whether your plants have been watered.
 
 ## Google Sheet
 
@@ -27,17 +29,26 @@ https://docs.google.com/spreadsheets/d/1MiYUM5Rr0hr_9kbYVNgYzxu88jngsMA9udl1Ox-z
 ## Time/Priority Matrix 
 
 
-### MVP/PostMVP - 5min
-
 #### MVP 
+
+- Registration is required in order to utilize this API
+- Once logged in the user is presented with a dashboard that has a sidebar containing the categories they've registered as well
+as a list of plants within those categories
+- In order to begin tracking plants the user will need to create a category and add the desired plant to it
+- Registration of categories begins in the sidebar, a modal will open up that allows the user to create a new category if they wish
+- Once a category is created the main page will display a button allowing a user to add a plant
+- Plants have a name, description, as well as a required category that can be defined
+- Once a plant is created its information is displayed on the page along with tracking details
 
 #### PostMVP 
 
+- Functionality that allows tracking of ambient temperature and amount of light recieved
+- Search for plants where needs have not been met
+
+
 ## Functional Components
 
-Based on the initial logic defined in the previous sections try and breakdown the logic further into functional components, and by that we mean functions.  Try and capture what logic would need to be defined if the game was broken down into the following categories.
 
-Time frames are also key in the development cycle.  You have limited time to code all phases of the game.  Your estimates can then be used to evalute game possibilities based on time needed and the actual time you have before game must be submitted. It's always best to pad the time by a few hours so that you account for the unknown so add and additional hour or two to each component to play it safe.
 
 #### MVP
 | Component | Priority | Estimated Time | Time Invetsted | Actual Time |
