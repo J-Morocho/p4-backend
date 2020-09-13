@@ -10,6 +10,7 @@ from apps.api.models import Category, Plant
 
 # Create your views here.
 
+
 class CategoryViewSet(viewsets.ModelViewSet):
 
     # Must login to create categories
@@ -34,6 +35,26 @@ class CategoryViewSet(viewsets.ModelViewSet):
             msg = 'Category with that name already exists',
             raise ValidationError(msg)
         return super().create(request)
+
+    def perform_create(self, serializer):
+        serializer.save(owner=self.request.user)
+
+
+class PlantViewSet(viewsets.ModelViewSet):
+    permission_classes = (IsAuthenticated,)
+    serializer_class = PlantSerializer
+
+    def get_queryset(self):
+        queryset = Plant.objects.all().filter(owner=self.request.user)
+        return queryset
+
+    def create(self, request, *args, **kwargs):
+        if request.user.is_anonymous:
+            raise PermissionDenied(
+                "Only logged in users can create a new plant object"
+            )
+        print(request)
+        return super().create(request, *args, **kwargs)
 
     def perform_create(self, serializer):
         serializer.save(owner=self.request.user)
