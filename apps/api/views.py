@@ -40,6 +40,38 @@ class CategoryViewSet(viewsets.ModelViewSet):
         serializer.save(owner=self.request.user)
 
 
+class SingleCategoryPlant(generics.RetrieveUpdateDestroyAPIView):
+    permission_classes = (IsAuthenticated,)
+    serializer_class = PlantSerializer
+
+    def get_queryset(self):
+        if self.kwargs.get('category_pk') and self.kwargs.get('pk'):
+            category = Category.objects.get(pk=self.kwargs['category_pk'])
+            queryset = Plant.objects.filter(
+                pk=self.kwargs['pk'],
+                owner=self.request.user,
+                category=category
+            )
+        return queryset
+
+
+# Get all plants in a category
+class CategoryPlants(generics.ListCreateAPIView):
+    permission_classes = (IsAuthenticated,)
+    serializer_class = PlantSerializer
+
+    def get_queryset(self):
+        if self.kwargs.get("category_pk"):
+            category = Category.objects.get(pk=self.kwargs['category_pk'])
+            queryset = Plant.objects.filter(
+                owner=self.request.user,
+                category=category
+            )
+        return queryset
+
+
+# Get all plants for a logged in user
+# Create a plant
 class PlantViewSet(viewsets.ModelViewSet):
     permission_classes = (IsAuthenticated,)
     serializer_class = PlantSerializer
@@ -55,6 +87,15 @@ class PlantViewSet(viewsets.ModelViewSet):
             )
         print(request)
         return super().create(request, *args, **kwargs)
+
+    def destroy(self, request, *args, **kwargs):
+        plant = Plant.objects.get(pk=self.kwargs['pk'])
+        # Check if the user owns the plant object
+        if not request.user == plant.owner:
+            raise PermissionDenied(
+                "You have no permissions to delete this object"
+            )
+        return super().destroy(request, *args, **kwargs)
 
     def perform_create(self, serializer):
         serializer.save(owner=self.request.user)
