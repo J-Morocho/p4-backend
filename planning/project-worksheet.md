@@ -57,26 +57,21 @@ as a list of plants within those categories
 #### MVP
 | Component | Priority | Estimated Time | Time Invetsted | Actual Time |
 | --- | :---: |  :---: | :---: | :---: |
-| Hamburger | H | 1hr | 1.5hr | -hr|
-| Project Previews | H | 3hr | -hr | -hr|
-| Regular Nav | H | H | -hr | -hr|
-| Adding Form | H | 1.5hr| -hr | -hr |
-| Other sections and flex| M | 4hr | 2hr | -hr|
-| Working with API | H | 3hrs| 2hr | -hr |
-| Responsive | H | 3hr | -hr | -hr|
-| Social Media Icons | L | 1hr | -hr | -hr|
-| Total | H | 15.5hrs| -hrs | -hrs |
+| Planning / structure| H | 1hr | 1.5hr | 1.5hr|
+| Deployment | H | 1hr | 1hr | 1hr|
+| Create Category| H | 3hr | -hr | -hr|
+| GET all plants in category| H | 2hr | -hr | -hr |
+| Update plant | H | 1hr | 0.5hr | 0.5hr |
+| Authentication | H | 3hr| 1.5hr | 1.5hr|
+| Total | H | 11 hrs| hrs | -hrs |
 
 #### PostMVP
 | Component | Priority | Estimated Time | Time Invetsted | Actual Time |
 | --- | :---: |  :---: | :---: | :---: |
-| Project Hover | L | 3hr | -hr | -hr|
-| Banner letters wiggle | L | 1hr | -hr | -hr|
-| Interactive Banner | M | 4hr | -hr | -hr|
-| Materialize | H | 4hr | -hr | -hr|
-| Bootstrap | H | 4hr | -hr | -hr|
-| Make own icon | L | 4hr | -hr | -hr|
-| Total | H | 20hrs| -hrs | -hrs |
+| Create water table | 3hr | -hr| -hr|
+| Ambient temperature | 6hr| -hr| -hr|
+| Light recieved | 6hr | -hr | -hr|
+| Total | H | 15hrs| -hrs | -hrs |
 
 ## Additional Libraries
 
