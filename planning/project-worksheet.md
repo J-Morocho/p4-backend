@@ -28,6 +28,7 @@ https://docs.google.com/spreadsheets/d/1MiYUM5Rr0hr_9kbYVNgYzxu88jngsMA9udl1Ox-z
 
 ## Time/Priority Matrix 
 
+- [Matrix](https://res.cloudinary.com/jcloud3zf/image/upload/v1600083025/project-4/p4backend-matrix_hfsil9.png)
 
 #### MVP 
 
