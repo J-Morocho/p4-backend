@@ -9,7 +9,8 @@ router.register('categories', CategoryViewSet, basename='categories')
 router.register('plants', PlantViewSet, basename='plants')
 
 custom_urlpatterns = [
-    url(r'categories/(?P<category_pk>\d+)/plants$', CategoryPlants.as_view(), name='category_plants')
+    url(r'categories/(?P<category_pk>\d+)/plants$', CategoryPlants.as_view(), name='category_plants'),
+
 ]
 
 urlpatterns = router.urls
