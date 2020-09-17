@@ -1,5 +1,7 @@
 from django.db import models
-from apps.authentication.models import  User
+from django.utils import timezone
+from apps.authentication.models import User
+
 
 # Create your models here.
 
@@ -28,6 +30,13 @@ class Plant(models.Model):
     is_watered = models.BooleanField(default=False)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
+    # frequency = 2 (twice a day)
+    frequency = models.IntegerField(default=False)
+    # curr time we watered
+    watered_at = models.DateTimeField(null=True, blank=True)
+    # Increment water count when watered_at is updated
+    # if watered_count exceeds frequency then alert user
+    watered_count = models.IntegerField(default=False)
 
     def __str__(self):
         return self.name
