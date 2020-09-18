@@ -8,7 +8,7 @@ class PlantSerializer(serializers.ModelSerializer):
     class Meta:
         model = Plant
         fields = ('id', 'category', 'owner', 'name', 'description',
-                  'image_url', 'is_watered', 'created_at', 'updated_at')
+                  'image_url', 'is_watered', 'frequency', 'watered_at', 'watered_count', 'created_at', 'updated_at')
 
 
 class CategorySerializer(serializers.ModelSerializer):
