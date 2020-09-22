@@ -6,7 +6,7 @@
 
 |  Day | Deliverable | Status
 |---|---| ---|
-|Day 1| Project Description | Incomplete
+|Day 1| Project Description | Complete
 |Day 1| Wireframes / Priority Matrix / Timeline `backend` and `frontend`| Complete
 |Day 2| Working RestAPI | Complete
 |Day 3| Core Application Structure (HTML, CSS, etc.) | Complete
@@ -60,11 +60,11 @@ as a list of plants within those categories
 | --- | :---: |  :---: | :---: | :---: |
 | Planning / structure| H | 1hr | 1.5hr | 1.5hr|
 | Deployment | H | 1hr | 1hr | 1hr|
-| Create Category| H | 3hr | -hr | -hr|
-| GET all plants in category| H | 2hr | -hr | -hr |
+| Create Category| H | 3hr | 3hr | 3hr|
+| GET all plants in category| H | 2hr | 1.5hr | 1.5hr |
 | Update plant | H | 1hr | 0.5hr | 0.5hr |
 | Authentication | H | 3hr| 1.5hr | 1.5hr|
-| Total | H | 11 hrs| hrs | -hrs |
+| Total | H | 11 hrs| 9 hrs | 9 hrs |
 
 #### PostMVP
 | Component | Priority | Estimated Time | Time Invetsted | Actual Time |
@@ -86,16 +86,31 @@ as a list of plants within those categories
 
 Use this section to include a brief code snippet of functionality that you are proud of an a brief description  
 
-```
-function reverse(string) {
-	// here is the code to reverse a string of text
-}
+I enjoyed figuring out how i would be able to keep track of the last time the plant was watered at and using the frequency to check whether the user will be allowed to perform a watering or not.
+
+```javascript
+class Plant(models.Model):
+    owner = models.ForeignKey(User, on_delete=models.CASCADE)
+    category = models.ForeignKey(Category, related_name='plants', on_delete=models.CASCADE)
+
+    name = models.CharField(max_length=100)
+    description = models.TextField(blank=True)
+    # No image_url in default plant instance
+    image_url = models.URLField(blank=True, null=True)
+    is_watered = models.BooleanField(default=False)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+    # frequency = 2 (twice a day)
+    frequency = models.IntegerField(default=False)
+    # curr time we watered
+    watered_at = models.DateTimeField(null=True, blank=True)
+    # Increment water count when watered_at is updated
+    # if watered_count exceeds frequency then alert user
+    watered_count = models.IntegerField(default=False)
 ```
 
 ## Issues and Resolutions
- Use this section to list of all major issues encountered and their resolution.
 
-#### SAMPLE.....
-**ERROR**: app.js:34 Uncaught SyntaxError: Unexpected identifier                                
-**RESOLUTION**: Missing comma after first object in sources {} object
+**ERROR**: Uncaught (in promise) TypeError: Failed to fetch                                
+**RESOLUTION**: Needed to ensure i passed in the correct headers/url/method along with the fetch request
 
