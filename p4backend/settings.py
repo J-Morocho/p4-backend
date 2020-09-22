@@ -28,7 +28,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['localhost:8000', 'localhost:8080']
+ALLOWED_HOSTS = ['localhost:8000', 'localhost:8080', 'https://plantr.netlify.app/#/']
 
 
 # Application definition
